@@ -1,0 +1,37 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 12px;
+    width: 330px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+
+}
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+}
+
+.contactFormFieldWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+
+    height: 35px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding-left: 9px;
+}
+
+.addBtn {
+    border: 1px solid gray;
+    border-color: lightgray;
+    width: 150px;
+    align-self: center;
+}
