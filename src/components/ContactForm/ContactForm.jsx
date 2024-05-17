@@ -32,7 +32,7 @@ export default function ContactForm() {
             name: values.name,
             number: values.number,
         };
-
+console.log("add contact")
 
         dispatch(addContact(addValue));
 

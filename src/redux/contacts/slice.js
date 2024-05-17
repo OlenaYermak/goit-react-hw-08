@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchContacts, addContact, deleteContact } from "../contacts/operations";
 import { logOut } from "../auth/operations";
-// import { selectContactFilter } from "./filterSlice";
+
 
 
 
@@ -16,10 +16,12 @@ const contactsSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, (state) => {
+        
         state.error = false;
         state.loading = true;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
+         
         state.items = action.payload;
         state.loading = false;
       })

@@ -41,6 +41,7 @@ import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 import Loader from "../Loader/Loader";
 import RestrictedRoute from "../RestrictedRoute";
+import PrivateRoute from "../PrivateRoute";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() => import("../../pages/RegistrationPage/RegistrationPage"));
@@ -63,7 +64,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RestrictedRoute component={ <RegistrationPage />  } redirectTo="/" />} />
           <Route path="/login" element={<RestrictedRoute component={<LoginPage />} redirectTo="/contacts"  />}/>
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/contacts" element={<PrivateRoute component= {<ContactsPage />} redirectTo="/login"  />}
+           />
         </Routes>
       </Suspense>)}
       

@@ -1,21 +1,29 @@
+
 import Contact from "../Contact/Contact"
 
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectFilteredContacts } from "../../redux/contactsSlice";
-import { fetchContacts } from "../../redux/contactsOps";
+import { selectFilteredContacts } from "../../redux/filters/selectors";
+// import { fetchContacts } from "../../redux/contacts/operations";
+
+// import { selectFilteredContacts } from "../../redux/contactsSlice";
+// import { fetchContacts } from "../../redux/contactsOps";
 
 import css from "./ContactList.module.css"
 
 export default function ContactList() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     
     const showContacts = useSelector(selectFilteredContacts);
 
+    console.log(showContacts);
+
+    
+    
      useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    console.log("showContacts:", showContacts);
+  }, [showContacts]);
 
     return (
         <ul className={css.contactList}>
@@ -27,6 +35,3 @@ export default function ContactList() {
         </ul>
     );
 }
-
-
-

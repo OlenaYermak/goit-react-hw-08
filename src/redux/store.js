@@ -13,10 +13,11 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/slice";
 
 import contactsReducer from "./contacts/slice";
+import filtersReducer from "./filters/slice";
 
 
 // import contactsReducer from "./contactsSlice";
-import filtersReducer from "./filterSlice";
+// import filtersReducer from "./filterSlice";
 
 
 const authPersistConfig = {
