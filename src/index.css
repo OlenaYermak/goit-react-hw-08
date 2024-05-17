@@ -49,7 +49,7 @@ a:hover {
 
 body {
   margin: 30 px;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
 }
