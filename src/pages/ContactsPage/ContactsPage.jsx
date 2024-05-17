@@ -1,25 +1,34 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import TaskList from "../../components/TaskList/TaskList";
-import TaskEditor from "../../components/TaskEditor/TaskEditor";
-import { fetchTasks } from "../../redux/tasks/operations";
-import { selectLoading } from "../../redux/tasks/selectors";
+import ContactList from "../../components/ContactList/ContactList";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import Loader from "../../components/Loader/Loader";
+import  ErrorMessage  from "../../components/ErrorMessage/ErrorMessage";
 
-export default function TasksPage() {
+
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectLoading, selectError } from "../../redux/contacts/selectors";
+
+export default function ContactsPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
     <>
-      <PageTitle>Your tasks</PageTitle>
-      <TaskEditor />
-      <div>{isLoading && "Request in progress..."}</div>
-      <TaskList />
+      <PageTitle>Your contacts</PageTitle>
+      <ContactForm />
+       <SearchBox />
+         {loading && !error && <Loader />}
+           {error && <ErrorMessage />}
+       
+      <ContactList />
     </>
   );
 }
