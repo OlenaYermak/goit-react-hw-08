@@ -7,3 +7,8 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+}

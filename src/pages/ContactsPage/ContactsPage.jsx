@@ -9,12 +9,15 @@ import  ErrorMessage  from "../../components/ErrorMessage/ErrorMessage";
 
 
 import { fetchContacts } from "../../redux/contacts/operations";
-import { selectLoading, selectError } from "../../redux/contacts/selectors";
+import { selectLoading, selectError, selectContacts } from "../../redux/contacts/selectors";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
+
+  
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,7 +27,7 @@ export default function ContactsPage() {
     <>
       <PageTitle>Your contacts</PageTitle>
       <ContactForm />
-       <SearchBox />
+        {contacts.length > 0 && <SearchBox />}
          {loading && !error && <Loader />}
            {error && <ErrorMessage />}
        

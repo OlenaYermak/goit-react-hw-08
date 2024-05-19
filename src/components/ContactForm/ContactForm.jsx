@@ -3,7 +3,7 @@ import * as Yup from "yup";
 
 import { useId } from "react";
 import { useDispatch } from "react-redux";
-// import { addContact } from "../../redux/contactsOps";
+
 
 import { addContact } from "../../redux/contacts/operations";
 
@@ -32,7 +32,7 @@ export default function ContactForm() {
             name: values.name,
             number: values.number,
         };
-console.log("add contact")
+
 
         dispatch(addContact(addValue));
 
